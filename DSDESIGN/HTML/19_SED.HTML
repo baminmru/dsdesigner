@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Подбор платежных поручений</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Подбор платежных поручений</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+KF_CTS, DATE,  N_STR, CDOC, CTS, BIC, (-SUMM) SUMM, 
+PLP_R_CDOC, DDOC, VOPL, NAZPL, CODE, SRPL, OPL,
+DBN, D_RETURN, BNVID,BNV_K_TSID, BNV_LINESID,PLP_RID
+from V_BNV_TO_PLP</I>
+<P>Запрос строки: 
+<P><I></I>
+<P>Вставка: 
+<P><I></I>
+<P>Изменение: 
+<P><I></I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by SUMM</I>
+<H2 > Индексы</H2>
+<P>По документу из выписки: 
+<P><I>order by CDOC</I>
+<P>По платежному поручению: 
+<P><I>order by PLP_R_CDOC</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Счет КФ</TD> <TD><I>KF_CTS</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дата выписки</TD> <TD><I>DATE</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ строки</TD> <TD><I>N_STR</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ документа</TD> <TD><I>CDOC</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Счет</TD> <TD><I>CTS</I></TD> <TD><I>4</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>БИК</TD> <TD><I>BIC</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD><I>SUMM</I></TD> <TD><I>6</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ П / П</TD> <TD><I>PLP_R_CDOC</I></TD> <TD><I>7</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дата П/П</TD> <TD><I>DDOC</I></TD> <TD><I>8</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Операции</H2>
+<H3 > Провести платежное поручение *</H3>
+<P>Сообщение
+<P><I>Провести отмеченные (текущее) платежные поручения ?</I>
+<P>Операция
+<P><I>LME_MakePLAT ^BNV_LINESID^,^PLP_RID^,^K_BS_ID_N^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Балансовый счет</TD> <TD>K_BS_ID_N</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=2_SED.HTML>Балансовые счета</A> </TD> <TD>K_BSID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

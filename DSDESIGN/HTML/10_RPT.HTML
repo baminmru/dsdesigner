@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Свод подробно </TITLE>
+</HEAD>
+<BODY>
+<H1 > Отчет: Свод подробно </H1>
+<P>Соединение
+<P><I>Бюджет 99</I>
+<P>Файл отчета
+<P><I>svod.rpt</I>
+<P>Заголовок
+<P><I>push { "Свод подробно  за период от " & D_FROM &" по " & D_TO }</I>
+<P>Процедура подготовки данных
+<P><I>push { "LME_BUILD_RPT_001 " & CSQL {D_FROM} & "," & CSQL{D_TO} }</I>
+<H2 > Формулы</H2>
+<TABLE border=2 ><TR><TH>Название</TH> <TH>Значение</TH> </TR> 
+<TR><TD>D_TO</TD> <TD>push {
+"Date(" & Year{D_TO} &","& Month{D_TO} &
+"," & Day{D_TO} & ")"
+}</TD> </TR> 
+<TR><TD>D_FROM</TD> <TD>push {
+"Date(" & Year{D_FROM} &"," & Month{D_FROM} &
+"," & Day{D_FROM} & ")"
+}</TD> </TR> 
+<TR><TD>GB</TD> <TD>push {CSQL {GB} }</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

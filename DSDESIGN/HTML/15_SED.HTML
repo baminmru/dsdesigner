@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Платежные поручения</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Платежные поручения</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+  CDOC, DDOC, SUMM, NAZPL,  SRPL, OPL, VOPL,DBN,
+  CDOC +' от '+ convert(varchar(20),DDOC,103) CODE,
+  K_TSID, K_VPID,  D_RETURN, PLP_RID, K_TDID, DOCID
+from 
+  PLP_R</I>
+<P>Запрос строки: 
+<P><I>select 
+  CDOC, DDOC, SUMM, NAZPL,  SRPL, OPL, VOPL,DBN,
+  CDOC +' от '+ convert(varchar(20),DDOC,103) CODE,
+  K_TSID, K_VPID,  D_RETURN, PLP_RID, K_TDID, DOCID
+from 
+  PLP_R
+where PLP_RID=^PLP_RID^</I>
+<P>Вставка: 
+<P><I></I>
+<P>Изменение: 
+<P><I></I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by CDOC</I>
+<H2 > Параметры</H2>
+<P>@BANK_SUMM
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>№ П/П</TD> <TD><I>CDOC</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дата</TD> <TD><I>DDOC</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD><I>SUMM</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Назначение</TD> <TD><I>NAZPL</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Срок</TD> <TD><I>SRPL</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Опл.</TD> <TD><I>OPL</I></TD> <TD><I>6</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Вид </TD> <TD><I>VOPL</I></TD> <TD><I>7</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Отметка банка</TD> <TD><I>DBN</I></TD> <TD><I>8</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>CODE</TD> <TD><I>CODE</I></TD> <TD><I>9</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

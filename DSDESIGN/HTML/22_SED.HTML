@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Приоритет</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Приоритет</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select CPRT, NPRT,K_PRTID  from K_PRT</I>
+<P>Запрос строки: 
+<P><I>select CPRT, NPRT,K_PRTID  from K_PRT where K_PRTID=^K_PRTID^</I>
+<P>Вставка: 
+<P><I>Insert Into 
+K_PRT ( 
+CPRT,
+NPRT,
+) Values ( 
+^CPRT^,
+^NPRT^)</I>
+<P>Изменение: 
+<P><I>Update 
+K_PRT  Set  
+CPRT=^CPRT^,
+NPRT=^NPRT^
+ Where 
+K_PRTID=^K_PRTID^</I>
+<P>Удаление: 
+<P><I>delete from K_PRT where K_PRTID=^K_PRTID^</I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by CPRT</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Код</TD> <TD><I>CPRT</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Название</TD> <TD><I>NPRT</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Код</TD> <TD>CPRT</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Название</TD> <TD>NPRT</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

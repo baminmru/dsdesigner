@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="LIB3.lib"/>
+    <OBJFILES value="LIB3.obj stackvalue.obj LZSS.obj mystream.obj mystring.obj Date.obj 
+      Tokenizer.obj Convertions.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value=""/>
+    <RELEASELIBPATH value=""/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="_BAMI_LIB3_"/>
+    <SYSDEFINES value="NO_STRICT;_VIS_NOLIB"/>
+    <MAINSOURCE value="LIB3.cpp"/>
+    <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl;$(vbroker)\include;$(VBROKERDIR)\include"/>
+    <LIBPATH value=""/>
+    <WARNINGS value="-w-par -w-8027 -w-8026"/>
+    <WARNOPTSTR value=""/>
+    <LISTFILE value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-src_suffix cpp -D_BAMI_LIB3_ -I$(BCB)\include -I$(BCB)\include\vcl 
+      -I$(vbroker)\include -I$(VBROKERDIR)\include -boa"/>
+    <CFLAG1 value="-Od -H=e:\borland\cbuilder5\lib\vcl50.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k 
+      -y -v -vi- -c -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -JPHN -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLRES value=""/>
+    <ALLLIB value=""/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=$(BCB)\include;$(BCB)\include\vcl;$(vbroker)\include;$(vbrokerdir)\include
+Item1=$(BCB)\include;$(BCB)\include\vcl;$(vbroker)\include
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=$(vbroker)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_BAMI_LIB3_
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=1
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

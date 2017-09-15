@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Лицевой счет расхода</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Лицевой счет расхода</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+  K_LSR.CUL+' '+ CPR+' '+ CCS_FULL+ ' '+CVR+ ' '+
+  CPS+ ' '+CDEP+ ' '+COT CODE,
+  K_LSR.CUL, K_RFUID, CPR, CCS_FULL,
+  CVR, CPS, CDEP, COT, CBS, COMMENT,
+  K_LSRID, K_KLSID, K_LSR.K_ULID, K_PRID, 
+  K_CSID, K_VRID, K_PSID, K_DEPID, 
+  PKZ, K_OTID, K_BSID,K_UL_K_ULID
+from 
+  K_LSR
+join K_UL_K_UL on K_LSR.K_ULID=K_UL_K_UL.K_ULID_PARENT</I>
+<P>Запрос строки: 
+<P><I></I>
+<P>Вставка: 
+<P><I></I>
+<P>Изменение: 
+<P><I></I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by CODE</I>
+<H2 > Параметры</H2>
+<P>@K_UL_K_ULID
+<H2 > Индексы</H2>
+<P>По целевой статье: 
+<P><I>order by CCS_FULL</I>
+<P>По виду расхода: 
+<P><I>order by CVR</I>
+<P>По экономической статье: 
+<P><I>order by CPS</I>
+<P>По разделу: 
+<P><I>order by CPR</I>
+<P>По ИНН: 
+<P><I>order by CUL</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Инн</TD> <TD><I>CUL</I></TD> <TD><I>0</I></TD> <TD><I>160</I></TD> </TR> 
+<TR><TD>Раздел</TD> <TD><I>CPR</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Целевая статья</TD> <TD><I>CCS_FULL</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Вид расхода</TD> <TD><I>CVR</I></TD> <TD><I>4</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Экономическая статья</TD> <TD><I>CPS</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Комментарий</TD> <TD><I>COMMENT</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

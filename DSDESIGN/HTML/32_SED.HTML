@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Выборка по проводкам</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Выборка по проводкам</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+DDOC, CDOC, SUMM, DB_CBS,  DB_SUBCONTO, CR_CBS,  CR_SUBCONTO
+ from V_GOOD_EX_DOC</I>
+<P>Запрос строки: 
+<P><I></I>
+<P>Вставка: 
+<P><I></I>
+<P>Изменение: 
+<P><I></I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by DDOC desc,CDOC</I>
+<H2 > Индексы</H2>
+<P>По проводке: 
+<P><I>order by DB_CBS,DB_SUBCONTO,CR_CBS,CR_SUBCONTO</I>
+<P>По дебету: 
+<P><I>order by DB_CBS,DB_SUBCONTO</I>
+<P>По кредиту: 
+<P><I>order by CR_CBS,CR_SUBCONTO</I>
+<P>По сумме: 
+<P><I>order by SUMM</I>
+<P>По дате: 
+<P><I>order by DDOC,CDOC</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Дата ордера</TD> <TD><I>DDOC</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ ордера</TD> <TD><I>CDOC</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD><I>SUMM</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дебет</TD> <TD><I>DB_CBS</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто дебета</TD> <TD><I>DB_SUBCONTO</I></TD> <TD><I>4</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Кредит</TD> <TD><I>CR_CBS</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто кредита</TD> <TD><I>CR_SUBCONTO</I></TD> <TD><I>6</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

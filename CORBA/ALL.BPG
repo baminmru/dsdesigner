@@ -1,0 +1,35 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = LIB3.lib Store.exe Cartrige.exe Menu.dll Grid.dll ObjManager.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+ObjManager.exe: Manager\ObjManager.bpr
+  $(MAKE)
+
+Store.exe: Store\Store.bpr
+  $(MAKE)
+
+Cartrige.exe: Cartrige_odbc\Cartrige.bpr
+  $(MAKE)
+
+Menu.dll: MENU_DLL\Menu.bpr
+  $(MAKE)
+
+Grid.dll: Grid_dll\Grid.bpr
+  $(MAKE)
+
+LIB3.lib: Lib\LIB3.bpr
+  $(MAKE)
+
+

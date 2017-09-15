@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Выписки</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Выписки</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select  
+  'Дата:' + CONVERT(VARCHAR(20),DATE,103)+' Счет:'+CTS CODE,
+  BNVID, BNV.K_TDID, BNV.DOCID,BNV.K_TSID, 
+  CTS,   BIC, NBN,  DATE,
+  DEBIT, CREDIT, INPUT, OUTPUT, MANUAL 
+from 
+  BNV 
+join 
+  K_TS 
+on 
+  K_TS.K_TSID=BNV.K_TSID 
+join LME_PARAMS on K_TS.CUL=VALUE and NAME='KFINN'</I>
+<P>Запрос строки: 
+<P><I>select  
+'Дата:' + CONVERT(VARCHAR(20),DATE,103)+' Счет:'+CTS CODE,
+BNVID, BNV.K_TDID, BNV.DOCID,BNV.K_TSID, 
+CTS,   BIC, NBN,  DATE,
+DEBIT, CREDIT, INPUT, OUTPUT, MANUAL 
+from BNV join K_TS on K_TS.K_TSID=BNV.K_TSID  where  BNVID=^BNVID^</I>
+<P>Вставка: 
+<P><I>LME_AddBnv ^DATE^, ^K_TSID^,
+^DEBIT^,^CREDIT^,
+^INPUT^,^OUTPUT^</I>
+<P>Изменение: 
+<P><I>Update 
+BNV  Set  
+K_TSID=^K_TSID^,
+DATE=^DATE^,
+DEBIT=^DEBIT^,
+CREDIT=^CREDIT^,
+INPUT=^INPUT^,
+OUTPUT=^OUTPUT^,
+MANUAL=^MANUAL^ 
+Where BNVID=^BNVID^</I>
+<P>Удаление: 
+<P><I>delete from BNV
+where  BNVID=^BNVID^</I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by DATE desc, CTS</I>
+<H2 > Параметры</H2>
+<P>@K_TSID
+<H2 > Индексы</H2>
+<P>По счету: 
+<P><I>order by CTS,DATE desc </I>
+<P>По дате (убывание): 
+<P><I>order by DATE desc,CTS</I>
+<P>По дате (возрастание): 
+<P><I>order by DATE,CTS</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Счет</TD> <TD><I>CTS</I></TD> <TD><I>1</I></TD> <TD><I>200</I></TD> </TR> 
+<TR><TD>БИК</TD> <TD><I>BIC</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Банк</TD> <TD><I>NBN</I></TD> <TD><I>2</I></TD> <TD><I>350</I></TD> </TR> 
+<TR><TD>Дата</TD> <TD><I>DATE</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дебит</TD> <TD><I>DEBIT</I></TD> <TD><I>4</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Кредит</TD> <TD><I>CREDIT</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Входящий</TD> <TD><I>INPUT</I></TD> <TD><I>6</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Исходящий</TD> <TD><I>OUTPUT</I></TD> <TD><I>7</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Счет</TD> <TD>K_TSID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD>просмотр</TD> <TD><A HREF=14_SED.HTML>Счета КФ</A> </TD> <TD>K_TSID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Дата</TD> <TD>DATE</TD> <TD>Дата</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD>просмотр</TD> </TR> 
+<TR><TD>Дебит</TD> <TD>DEBIT</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Кредит</TD> <TD>CREDIT</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Входящий</TD> <TD>INPUT</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Исходящий</TD> <TD>OUTPUT</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Создана вручную</TD> <TD>MANUAL</TD> <TD>Да/Нет</TD> <TD>Нет</TD> <TD><I>нет</I></TD> <TD>просмотр</TD> </TR> 
+</TABLE>
+<H2 > Связи редактора</H2>
+<TABLE border=2 ><TR><TH>Название</TH> <TH>Подчиненный редактор</TH> <TH>Условие перехода</TH> <TH>Заголовок подчиненного редактора</TH> </TR> 
+<TR><TD>Поступления</TD> <TD><A HREF=20_SED.HTML>Строки выписки (поступления)</A> </TD> <TD></TD> <TD>push {"Поступления по выписке. " & CODE }</TD> </TR> 
+<TR><TD>Перечисления</TD> <TD><A HREF=13_SED.HTML>Строки выписки (перечисления)</A> </TD> <TD></TD> <TD>push {"Перечисления  по выписке. " & CODE }</TD> </TR> 
+<TR><TD>Все строки</TD> <TD><A HREF=17_SED.HTML>Сторки выписки</A> </TD> <TD></TD> <TD>push {"Строки  выписки. " & CODE }</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

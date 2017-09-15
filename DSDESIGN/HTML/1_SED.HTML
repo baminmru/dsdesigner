@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Параметры</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Параметры</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+  PARAMSID, NAME, ID, VALUE
+from 
+  LME_PARAMS</I>
+<P>Запрос строки: 
+<P><I>select PARAMSID, NAME, ID, VALUE
+ from LME_PARAMS  where  PARAMSID=^PARAMSID^</I>
+<P>Вставка: 
+<P><I>Insert Into 
+LME_PARAMS ( 
+NAME,
+ID,
+VALUE) Values ( 
+^NAME^,
+^ID^,
+^VALUE^)</I>
+<P>Изменение: 
+<P><I>Update 
+LME_PARAMS  Set  
+NAME=^NAME^,
+ID=^ID^,
+VALUE=^VALUE^ Where
+PARAMSID=^PARAMSID^</I>
+<P>Удаление: 
+<P><I>delete
+ from LME_PARAMS  where  PARAMSID=^PARAMSID^</I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I> order by NAME</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Название</TD> <TD><I>NAME</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Значение (число)</TD> <TD><I>ID</I></TD> <TD><I>1</I></TD> <TD><I>90</I></TD> </TR> 
+<TR><TD>Значение (строка)</TD> <TD><I>VALUE</I></TD> <TD><I>2</I></TD> <TD><I>130</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Название</TD> <TD>NAME</TD> <TD>Текст</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD>просмотр</TD> </TR> 
+<TR><TD>Значение (число)</TD> <TD>ID</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Значение (строка)</TD> <TD>VALUE</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

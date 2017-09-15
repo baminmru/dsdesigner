@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Входящеее сальдо</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Входящеее сальдо</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select CONTO,SUMM, EXID, K_BSID, K_KLSID, K_LSsID  
+from V_SALDO_BASE</I>
+<P>Запрос строки: 
+<P><I>select CONTO,SUMM,  EXID, K_BSID, K_KLSID, K_LSsID  
+from V_SALDO_BASE where EXID=^EXID^</I>
+<P>Вставка: 
+<P><I></I>
+<P>Изменение: 
+<P><I>LME_MakeSALDO
+^SUMM^,
+^K_BSID^,
+^K_KLSID^,
+^K_LSsID^</I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I></I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Счет</TD> <TD><I>CONTO</I></TD> <TD><I>0</I></TD> <TD><I>300</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD><I>SUMM</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Счет</TD> <TD>CONTO</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>просмотр</I></TD> <TD>просмотр</TD> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H2 > Операции</H2>
+<H3 > Создать +</H3>
+<P>Сообщение
+<P><I>Дополнить строки входящих остатков ?</I>
+<P>Операция
+<P><I>LME_InitSaldo</I>
+<P>Применяется для
+<P><I>новой строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+
+</BODY>
+</HTML>

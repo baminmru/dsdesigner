@@ -1,0 +1,330 @@
+// Primary structs
+
+typedef sequence<string> sList;
+typedef sequence<octet> seqOctets;
+
+struct TwiceString {
+        string Name1;
+        string Name2;
+};
+
+typedef sequence<TwiceString> seqTwiceStrings;
+
+enum DbType {
+        dbtNumeric,
+        dbtString,
+        dbtDate,
+        dbtBinary
+};
+
+struct SetDate{
+        long Y;
+        short M;
+        short D;
+        short H;
+        short Mi;
+        short S;
+};
+
+struct SetDataField{
+        boolean   IsNull;
+        DbType    FType;
+        double    vNumeric;
+        string    vString;
+        seqOctets vBinary;
+        SetDate   vDate;
+};
+
+struct Param{
+       string Name;
+       SetDataField Value;
+};
+typedef sequence<Param> seqParams;
+
+//module DataCartrige{
+
+// параметр источника данных
+struct CartrigeParam{
+  string Name;
+  boolean AllowNull;
+};
+
+typedef sequence<CartrigeParam> seqCartrigeParams;
+
+
+
+struct SetHeaderField{
+        string Name;
+        DbType FType;
+        boolean AllowNull;
+        long MaxSize;
+};
+
+typedef sequence<SetHeaderField> seqSetHeader;
+typedef sequence<SetDataField> seqSetRow;
+typedef sequence<seqSetRow> seqSetRows;
+
+
+struct RowSet{
+  seqSetHeader Header;
+  seqSetRows Rows;
+};
+
+
+// источники данных
+interface Cartrige{
+  attribute string Name;
+  readonly attribute boolean Connected;
+  readonly attribute seqCartrigeParams Parameters;
+  boolean CreateDataBaseObject(in seqOctets ObjDef);
+  RowSet GetRowSet(in string Query, in seqParams Parameters);
+  long OpenCursor(in string Query, in seqParams Parameters);
+  seqSetHeader GetCursorHeared(in long Cursor);
+  seqSetRow GetCursorRow(in long Cursor);
+  boolean NoMoreRows(in long Cursor);
+  void CloseCursor(in long Cursor);
+  void Exec(in string Query, in seqParams Parameters);
+  boolean Connect(in seqParams InitValues);
+  void Disconnect();
+};
+
+
+//};
+
+
+//module ApplicationServer {
+
+struct Domain {
+  string Name;
+  string CartrigeName;
+  seqParams SetupValues;
+};
+
+
+// dll OCX  & etc.
+struct ClientSideObjectDef{
+  string ObjBaseType;
+  string ObjSubType;
+  seqOctets Definition;
+};
+
+typedef sequence<ClientSideObjectDef> seqClientSideObjectDefs;
+
+struct Platform{
+  string Name;
+  seqClientSideObjectDefs ClientSideObjectDefs;
+};
+
+/*
+// system descriptions
+struct ObjectDef{
+  string ObjBaseType;
+  string ObjSubType;
+  string Name;
+  seqOctets Definition;
+};
+
+struct Task{
+  string Name;
+  string Caption;
+  seqOctets Description;
+};
+
+typedef sequence<Task> seqTasks;
+typedef sequence<ObjectDef> seqObjectDefs;
+
+struct System{
+  seqObjectDefs ObjectDefs;
+  seqTasks Tasks;
+  sList Domains;
+};
+
+typedef   sequence<Domain> seqDomains;
+
+struct SystemBuild{
+        string BuildName;
+        string SystemName;
+        seqDomains Domains;
+};
+
+typedef   sequence<Platform> seqPlatforms;
+typedef   sequence<System> seqSystems;
+typedef   sequence<Cartrige> seqCartriges;
+typedef   sequence<SystemBuild> seqBuilds;
+*/
+
+
+interface AppServer{
+
+  readonly attribute boolean Connected;
+  readonly attribute string  CurrentBuild;
+  readonly attribute string CurrentSystem;
+
+  boolean Logon(in string Name,in string Pass);
+  void Logoff();
+
+
+  seqTwiceStrings GetBuids();
+  void ChooseBuild(in string SystemName,in string BuildName);
+  seqOctets GetTask(in string Task);
+  seqOctets GetObjectDef(in string ObjBaseType, in  string ObjectName);
+  sList GetSystemDomains(in string SystemName);
+
+  // Retrive / Send Data
+  Cartrige GetDomainCartrige(in string Domain);
+
+  // client objects for different OS
+  seqOctets GetClientSideObject(
+        in  string PlatformName,
+        in string ObjBaseType,
+        in string ObjSubType );
+
+  void ChangePassword(in string NewPassword);
+
+};
+
+/*
+// ѕользователи
+struct User{
+  string Name;
+  string Password;
+  boolean IsAdmin;
+};
+
+// группа пользователей
+struct Group{
+    string Name;
+    sList Users;
+};
+*/
+
+struct BuildRight{
+  string BuildName;
+  string SystemName;
+  string GroupName;
+  string UserName;
+  boolean IsUser;
+
+  boolean AllowAccess;
+};
+
+struct TaskRight{
+  string BuildName;
+  string SystemName;
+  string TaskName;
+  string GroupName;
+  string UserName;
+  boolean IsUser;
+
+  boolean AllowExec;
+};
+
+struct ObjectRight{
+  string BuildName;
+  string SystemName;
+  string ObjectName;
+  string GroupName;
+  string UserName;
+  boolean IsUser;
+
+  boolean AllowExec;
+  boolean AllowRead;
+  boolean AllowWrite;
+};
+
+//typedef   sequence<User> seqUsers;
+//typedef   sequence<Group> seqGroups;
+//typedef   sequence<TaskRight> seqTaskRights;
+//typedef   sequence<ObjectRight> seqObjectRights;
+//typedef   sequence<BuildRight> seqBuildRights;
+
+
+interface AppServerStorageManager: AppServer{
+        // user support
+        sList GetUsers();
+        boolean AddUser(in string UserName,
+                        in string Password,
+                        in boolean IsAdmin);
+        boolean DelUser(in string UserName);
+
+        sList GetGroups();
+        sList GetGroupUsers(in string GroupName);
+        boolean AddGroup   (in string GroupName);
+        boolean DelGroup   (in string GroupName);
+        boolean AddUserToGroup( in string GroupName,
+                                in string UserName);
+        boolean DelUserFromGroup( in string GroupName,
+                                  in string UserName);
+
+        // rights
+        boolean SetObjectRight( in ObjectRight Right);
+        boolean SetTaskRight  ( in TaskRight Right);
+        boolean SetBuildRight ( in BuildRight Right);
+
+        boolean GetObjectRight( inout ObjectRight Right);
+        boolean GetTaskRight  ( inout TaskRight Right);
+        boolean GetBuildRight ( inout BuildRight Right);
+
+        // client objects support
+        sList GetPlatforms();
+        sList GetBaseTypeList();
+        boolean AddPlatform( in string Name);
+        boolean AddClientObject(in string PlatformName,
+                                in string ObjBaseType,
+                                in string ObjSubType,
+                                in seqOctets Octets);
+
+        boolean DelClientObject(in string PlatformName,
+                                in string ObjBaseType,
+                                in string ObjSubType);
+
+        //system support
+        boolean AddSystem( in string SystemName);
+        boolean AddSystemObject( in string SystemName,
+                                in string ObjectName,
+                                in string ObjectBaseType);
+        boolean AddSystemTask( in string SystemName,
+                              in string TaskName);
+        boolean AddSystemBuild( in string SystemName,
+                               in string BuildName);
+        boolean DelSystem( in string SystemName);
+        boolean DelSystemObject( in string SystemName,
+                                in string ObjectName,
+                                in string ObjectBaseType);
+        boolean DelSystemTask( in string SystemName,
+                              in string TaskName);
+        boolean DelSystemBuild( in string SystemName,
+                               in string BuildName);
+
+
+        boolean SetupSystemObject( in string SystemName,
+                                  in string ObjectName,
+                                  in string ObjectBaseType,
+                                  in string ObjectSubType,
+                                  in seqOctets Octets
+                                );
+        boolean SetupSystemTask( in string SystemName,
+                                in string TaskName,
+                                in seqOctets Octets);
+
+        boolean AddSystemBuildDomain( in string SystemName,
+                                     in string BuildName,
+                                     in string DomainName,
+                                     in string CartrigeName);
+
+        boolean SetupSystemBuildDomain( in string SystemName,
+                                       in string BuildName,
+                                       in string DomainName,
+                                       in seqParams SetupValues);
+
+        boolean DelSystemBuildDomain( in string SystemName,
+                                     in string BuildName,
+                                     in string DomainName);
+};
+
+
+
+//};
+
+
+

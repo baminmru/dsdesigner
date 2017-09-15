@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="PEServ.exe"/>
+    <OBJFILES value="PEServ.obj ..\Common\PEData.obj ..\Common\ProcessEngine_c.obj 
+      ..\Common\ProcessEngine_s.obj srvImpl.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value="..\Common\ProcessEngine.idl"/>
+    <IDLGENFILES value="..\Common\ProcessEngine_s.cpp ..\Common\ProcessEngine_c.cpp"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value="..\Lib\LIB3.lib"/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value="vcl50.lib"/>
+    <PACKAGES value="vcl50.bpi vclx50.bpi vcljpg50.bpi vclmid50.bpi vcldb50.bpi vclbde50.bpi 
+      bcbsmp50.bpi ibsmp50.bpi vcldbx50.bpi qrpt50.bpi teeui50.bpi teedb50.bpi 
+      tee50.bpi dss50.bpi nmfast50.bpi inetdb50.bpi inet50.bpi dclocx50.bpi"/>
+    <PATHCPP value=".;..\Common"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="_RTLDLL;NO_STRICT;_VIS_NOLIB;USEPACKAGES"/>
+    <MAINSOURCE value="PEServ.cpp"/>
+    <INCLUDEPATH value="..\..\..\..\CBuilder4\Projects;..\lib;..\Common;.d:\BAMI\BC\ProcessEngine\Common;$(BCB)\include;$(BCB)\include\vcl;$(VBROKERDIR)\include"/>
+    <LIBPATH value="..\..\..\..\CBuilder4\Projects;..\lib;..\Common;$(BCB)\lib\obj;$(BCB)\lib;$(VBROKERDIR)\lib"/>
+    <WARNINGS value="-w-par -w-8027 -w-8026"/>
+    <WARNOPTSTR value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-src_suffix cpp -I..\..\..\..\CBuilder4\Projects -I..\lib -I..\Common 
+      -I.d:\BAMI\BC\ProcessEngine\Common -I$(BCB)\include -I$(BCB)\include\vcl 
+      -I$(VBROKERDIR)\include -boa"/>
+    <CFLAG1 value="-Od -H=e:\borland\cbuilder5\lib\vcl50.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k 
+      -y -v -vi- -c -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -ap -Tpe -x -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0x32.obj $(PACKAGES) Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="orb_br.lib vport_br.lib $(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1049
+CodePage=1251
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=1
+Item0=..\lib;..\Common;.d:\BAMI\BC\ProcessEngine\Common;$(BCB)\include;$(BCB)\include\vcl;$(VBROKERDIR)\include
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=..\lib;..\Common;d:\BAMI\BC\ProcessEngine\Common;$(BCB)\lib\obj;$(BCB)\lib;$(VBROKERDIR)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+
+  <FILES>
+    <FILE type="depend" value="..\Common\ProcessEngine.idl" translator="idl2cpp">
+      <IDLROOTDIR value=" -root_dir F:\oldest\BACKUP\BCB4\PROCESSENGINE\Common\ "/>
+      <DEPENDENT value="..\Common\ProcessEngine_s.cpp"/>
+      <DEPENDENT value="..\Common\ProcessEngine_c.cpp"/>
+    </FILE>
+  </FILES>
+</PROJECT>

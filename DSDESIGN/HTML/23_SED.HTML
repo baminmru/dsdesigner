@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Сеть распорядителей</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Сеть распорядителей</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select  CUL_PARENT, CUL, D_OPEN, D_CLOSE,K_UL_K_ULID,K_ULID_PARENT,K_ULID,  
+CUL_PARENT+' / '+CUL CODE
+from K_UL_K_UL 
+where CUL is not null</I>
+<P>Запрос строки: 
+<P><I>select  CUL_PARENT, CUL, D_OPEN, D_CLOSE,K_UL_K_ULID,K_ULID_PARENT,K_ULID  from K_UL_K_UL where K_UL_K_ULID=^K_UL_K_ULID^</I>
+<P>Вставка: 
+<P><I></I>
+<P>Изменение: 
+<P><I></I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by CUL_PARENT,CUL</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Распорядитель</TD> <TD><I>CUL_PARENT</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Организация</TD> <TD><I>CUL</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дата открытия</TD> <TD><I>D_OPEN</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дата закрытия</TD> <TD><I>D_CLOSE</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

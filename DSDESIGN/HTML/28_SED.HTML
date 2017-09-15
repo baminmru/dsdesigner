@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Названия групп счетов</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Названия групп счетов</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select * from LME_ACC_GRP_NAME where OWNER=SUSER_NAME()</I>
+<P>Запрос строки: 
+<P><I>select * from LME_ACC_GRP_NAME where LME_ACC_GRP_NAMEID=^LME_ACC_GRP_NAMEID^</I>
+<P>Вставка: 
+<P><I>Insert Into 
+LME_ACC_GRP_NAME ( 
+NAME,
+OWNER) Values ( 
+^NAME^,
+SUSER_NAME())</I>
+<P>Изменение: 
+<P><I>Update 
+LME_ACC_GRP_NAME Set  
+NAME=^NAME^
+Where 
+LME_ACC_GRP_NAMEID=^LME_ACC_GRP_NAMEID^</I>
+<P>Удаление: 
+<P><I>delete from 
+LME_ACC_GRP_NAME 
+where LME_ACC_GRP_NAMEID=^LME_ACC_GRP_NAMEID^</I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I></I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Группа</TD> <TD><I>NAME</I></TD> <TD><I>0</I></TD> <TD><I>350</I></TD> </TR> 
+<TR><TD>Владелец</TD> <TD><I>OWNER</I></TD> <TD><I>1</I></TD> <TD><I>120</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Группа</TD> <TD>NAME</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Владелец</TD> <TD>OWNER</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>просмотр</I></TD> <TD>просмотр</TD> </TR> 
+</TABLE>
+<H2 > Связи редактора</H2>
+<TABLE border=2 ><TR><TH>Название</TH> <TH>Подчиненный редактор</TH> <TH>Условие перехода</TH> <TH>Заголовок подчиненного редактора</TH> </TR> 
+<TR><TD>Состав группы</TD> <TD><A HREF=29_SED.HTML>Состав группы счетов</A> </TD> <TD></TD> <TD></TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

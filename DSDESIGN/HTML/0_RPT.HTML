@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Выписки</TITLE>
+</HEAD>
+<BODY>
+<H1 > Отчет: Выписки</H1>
+<P>Соединение
+<P><I>Бюджет 99</I>
+<P>Файл отчета
+<P><I>bnv.rpt</I>
+<P>Заголовок
+<P><I>push { "Отчет по выпискам за период от " & D_FROM &" по " & D_TO }</I>
+<H2 > Формулы</H2>
+<TABLE border=2 ><TR><TH>Название</TH> <TH>Значение</TH> </TR> 
+<TR><TD>Caption</TD> <TD>push {"'Отчет по выпискам'"}</TD> </TR> 
+<TR><TD>D_From</TD> <TD>push {
+"Date(" & Year{D_FROM} &"," & Month{D_FROM} &
+"," & Day{D_FROM} & ")"
+}</TD> </TR> 
+<TR><TD>D_To</TD> <TD>push {
+"Date(" & Year{D_TO} &","& Month{D_TO} &
+"," & Day{D_TO} & ")"
+}</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="mylib.lib"/>
+    <OBJFILES value="mylib.obj SRC\odbcEng.obj SRC\fieldCont.obj SRC\MiniParser.obj 
+      SRC\mystream.obj SRC\mystring.obj SRC\Num2str.obj SRC\ODBCDataStream.obj 
+      SRC\Date.obj SRC\DataStream.obj SRC\Styles.obj SRC\StreamEditorDef.obj 
+      SRC\DataSource.obj SRC\ErrorFrom.obj SRC\LogIn.obj SRC\Excels.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) SRC\ErrorFrom.dfm SRC\LogIn.dfm"/>
+    <LIBFILES value="LIB\Odbc32.lib"/>
+    <LIBRARIES value="vclbde50.lib vcldb50.lib BAMIPackage.lib RXCTL.lib vclx50.lib vcl50.lib"/>
+    <SPARELIBS value="vcl50.lib vclx50.lib RXCTL.lib BAMIPackage.lib vcldb50.lib vclbde50.lib"/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;SRC"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value=""/>
+    <RELEASELIBPATH value=""/>
+    <LINKER value="TLib"/>
+    <USERDEFINES value="STRICT"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="mylib.cpp"/>
+    <INCLUDEPATH value="src;include;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="SRC"/>
+    <WARNINGS value="-w-par -w-8027 -w-8026"/>
+    <WARNOPTSTR value=""/>
+    <LISTFILE value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-Isrc -Iinclude -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp 
+      -DSTRICT -boa"/>
+    <CFLAG1 value="-Od -H=d:\PROGRA~1\borland\CBUILD~1\lib\vcl50.csm -Hc -Vx -Ve -Tkh30000 
+      -X- -r- -a8 -b- -k -y -v -vi- -c -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -M -JPHNE"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="/P256"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="$(OBJFILES)"/>
+    <ALLRES value=""/>
+    <ALLLIB value=""/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+D:\BAMI\BC\DSView\BAMIPackage.bpl=BAMI tool package
+
+[HistoryLists\hlIncludePath]
+Count=6
+Item0=src;include;$(BCB)\include;$(BCB)\include\vcl
+Item1=..\..\..\proc\cbuilder3\projects;..\dsview;src;include;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\owlfiles
+Item2=..\dsview;src;include;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\owlfiles
+Item3=src;include;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\owlfiles
+Item4=..\..\..\bami\bc\mylib\src;d:\bami\bc\mylib\include;d:\bami\bc\mylib\src;$(BCB)\include;$(BCB)\include\vcl
+Item5=d:\bami\bc\mylib\include;d:\bami\bc\mylib\src;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=5
+Item0=SRC
+Item1=SRC;
+Item2=$(BCB)\lib;$(BCB)\lib\obj
+Item3=d:\cbuilder3\rx\units
+Item4=d:\bami\bc\mylib\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=2
+Item0=$(BCB)\source\vcl;d:\bami\bc\mylib\src;d:\bami\bc\mylib\include
+Item1=$(BCB)\source\vcl;d:\bami\bc\mylib\src
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=STRICT
+
+[HistoryLists\hIBPIOutputDir]
+Count=2
+Item0=$(BCB)\libItem1=$(BCB)\lib
+Item1=
+
+[HistoryLists\hlTlibPageSize]
+Count=3
+Item0=0x0100
+Item1=0x0040
+Item2=0x0020
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl;d:\bami\bc\mylib\src;d:\bami\bc\mylib\include
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=1
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

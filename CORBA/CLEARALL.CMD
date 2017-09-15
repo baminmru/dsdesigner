@@ -1,0 +1,21 @@
+cd Cartrige_odbc
+call clear
+cd ..\Cartrige_file
+call clear
+cd ..\ClientGrid
+call clear
+cd ..\Grid_dll
+call clear
+cd ..\Lib
+call clear
+cd ..\Manager
+call clear
+cd ..\MENU_DLL
+call clear
+cd ..\ObjectsAdmin
+call clear
+cd ..\Store
+call clear
+cd ..\StoreCli
+call clear
+pause

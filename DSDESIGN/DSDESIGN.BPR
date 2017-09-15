@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="DSDesign.exe"/>
+    <OBJFILES value="DSDesign.obj DSDesigner.obj Changes.obj Navigator.obj Task.obj 
+      TaskEditor.obj ChooseTask.obj About.obj Filter.obj ..\DSView\Report.obj 
+      SlaveGrid.obj dbLoadSave.obj DBSave.obj HTML.obj ObjectList.obj LoadObj.obj"/>
+    <RESFILES value="DSDesign.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) DSDesigner.dfm Changes.dfm Navigator.dfm TaskEditor.dfm 
+      ChooseTask.dfm About.dfm Filter.dfm ..\DSView\Report.dfm SlaveGrid.dfm 
+      DBSave.dfm ObjectList.dfm LoadObj.dfm"/>
+    <LIBFILES value="..\MYLIB\mylib.lib ..\MYLIB\LIB\Odbc32.lib ..\MYLIB\LIB\Crpe32.lib"/>
+    <LIBRARIES value="vcldbx50.lib vclbde50.lib vcldb50.lib"/>
+    <SPARELIBS value="vcl50.lib vclx50.lib BAMIPackage.lib vcldb50.lib vclbde50.lib vcldbx50.lib"/>
+    <PACKAGES value="vclx50.bpi vcl50.bpi BAMIPackage.bpi"/>
+    <PATHCPP value=".;..\DSView"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="NO_STRICT;_RTLDLL;USEPACKAGES"/>
+    <MAINSOURCE value="DSDesign.cpp"/>
+    <INCLUDEPATH value="..\..\..\cbuilder3\bin;..\mylib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;$(BCB)\include;$(BCB)\include\vcl;..\mylib\include;..\dsview\crw"/>
+    <LIBPATH value="$(BCB)\Projects\Lib;..\..\..\cbuilder3\rx\units;..\..\..\cbuilder3\bin;..\mylib;..\..\..\proc\cbuilder3\lib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src;$(BCB)\RX\UNITS"/>
+    <WARNINGS value="-w-par -w-8027 -w-8026"/>
+    <WARNOPTSTR value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-src_suffix cpp -I..\..\..\cbuilder3\bin -I..\mylib 
+      -I..\..\..\proc\cbuilder3\bin -I..\..\..\cbuilder3\projects -I..\dsview 
+      -I$(BCB)\include -I$(BCB)\include\vcl -I..\mylib\include -I..\dsview\crw 
+      -boa"/>
+    <CFLAG1 value="-Od -H=d:\PROGRA~1\borland\CBUILD~1\lib\vcl50.csm -Hc -Vx -Ve -Tkh30000 
+      -X- -r- -a8 -4 -b- -k -y -v -vi- -c -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -M -JPHNE"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj $(PACKAGES) Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
+MinorVer=0
+Release=0
+Build=109
+Debug=0
+PreRelease=1
+Special=0
+Private=0
+DLL=0
+Locale=1049
+CodePage=1251
+
+[Version Info Keys]
+CompanyName=LMER
+FileDescription=LMER Navigator
+FileVersion=3.0.0.109
+InternalName=LMER Navigator
+LegalCopyright=© LMER,1999
+LegalTrademarks=
+OriginalFilename=LMER Navigator
+ProductName=LMER Navigator
+ProductVersion=1.0 - bcb
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=6
+Item0=..\..\..\cbuilder3\bin;..\mylib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;$(BCB)\include;$(BCB)\include\vcl;..\mylib\include;..\dsview\crw
+Item1=..\..\..\cbuilder3\bin;..\mylib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include;..\dsview\crw
+Item2=..\mylib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include;..\dsview\crw
+Item3=..\mylib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include
+Item4=..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include
+Item5=..\dsview;$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include
+
+[HistoryLists\hlLibraryPath]
+Count=7
+Item0=$(BCB)\Projects\Lib;..\..\..\cbuilder3\rx\units;..\..\..\cbuilder3\bin;..\mylib;..\..\..\proc\cbuilder3\lib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src;$(BCB)\RX\UNITS
+Item1=..\..\..\cbuilder3\bin;..\mylib;..\..\..\proc\cbuilder3\lib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;d:\bami\bc\mylib\src;$(BCB)\RX\UNITS
+Item2=..\mylib;..\..\..\proc\cbuilder3\lib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;d:\bami\bc\mylib\src;$(BCB)\RX\UNITS
+Item3=..\..\..\proc\cbuilder3\lib;..\..\..\proc\cbuilder3\bin;..\..\..\cbuilder3\projects;..\dsview;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;d:\bami\bc\mylib\src;$(BCB)\RX\UNITS
+Item4=..\dsview;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;d:\bami\bc\mylib\src;$(BCB)\RX\UNITS
+Item5=..\dsview;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;d:\bami\bc\mylib\src
+Item6=..\dsview;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl;d:\bami\bc\mylib\include;d:\bami\bc\mylib\src;d:\bami\bc\dsview
+
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_RTLDLL;USEPACKAGES
+Item1=USEPACKAGES
+
+[HistoryLists\hlRunParameters]
+Count=20
+Item0=@BK.lme  -$Сервер -&amp;Бухгалтерия  #Income editor
+Item1=@d:\bami\aisbp99\BK.lme  -$Сервер -&amp;Бухгалтерия  #Income editor
+Item2=-@d:\bami\aisbp99\BK.lme  -$Сервер -&amp;Бухгалтерия  #Income editor
+Item3=@BK2.lme  -$Сервер -&amp;Бухгалтерия  #Income editor
+Item4=-@BK.lme  -$Сервер -&amp;Бухгалтерия  -#Income editor
+Item5=@xltest.lme #test -@BK.lme  -$Сервер -&amp;Бухгалтерия  -#Income editor
+Item6=@Server.lme  $Сервер &amp;Бухгалтерия  #Income editor
+Item7=@Server.lme  $Сервер &amp;Заключения  #zni editor
+Item8=@Server.lmi  $Сервер &amp;Бухгалтерия  #Income editor
+Item9=@Server.lmi  &amp;Сервер  #Income editor
+Item10=@server.lme #Income $Сервер &amp;Бухгалтерия editor
+Item11=@server.lme #Income $Сервер &amp;Бухгалтерия editor !reader
+Item12=@server.lme #Income $Сервер &amp;Бухгалтерия
+Item13=@BamiSave3.LME #Income editor
+Item14=editor
+Item15=@BamiSave3.LME #Income
+Item16=@BamiSave2.LME #Income editor
+Item17=@BamiSave2.LME #Income
+Item18=bamisave.lme editor
+Item19=bamisave.lme
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl;d:\bami\bc\mylib\include;d:\bami\bc\mylib\src;d:\bami\bc\dsview
+
+[Parameters]
+RunParams=@BK.lme  -$Сервер -&amp;Бухгалтерия  #Income editor
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

@@ -1,0 +1,118 @@
+typedef sequence<octet> Octets;
+
+
+
+interface ProcessEngine{
+  long NewInstance();
+  void CloseInstance(in long ConnectId);
+
+  void Connect(in string UID, in string PWD);
+  void DisConnect(in long ConnectId);
+  void ChangePassword(in long ConnectId,in string Password);
+
+  boolean IsConnected(in long ConnectId);
+
+  Octets GetTypeList  (in long ConnectId);
+  void   SetType  (in long ConnectId,in string  TypeName, in string StoreName);
+  void   DelType  (in long ConnectId,in string  TypeName);
+  string GetTypeStore  (in long ConnectId,in string  TypeName);
+
+  Octets GetProductList  (in long ConnectId);
+  void   AddProduct  (in long ConnectId,in string  ProductName);
+  void   DelProduct  (in long ConnectId,in string  ProductName);
+
+  Octets GetSoftwareList  (in long ConnectId);
+  void   AddSoftware  (in long ConnectId,in string  SoftwareName);
+  void   DelSoftware  (in long ConnectId,in string  SoftwareName);
+
+  Octets GetRoleList  (in long ConnectId,in string  TypeName);
+  void   AddRole  (in long ConnectId,in string  TypeName,in string  RoleName);
+  void   DelRole  (in long ConnectId,in string  TypeName,in string  RoleName);
+
+  Octets  GetStateList  (in long ConnectId,in string  TypeName);
+  void   AddState  (in long ConnectId,in string  TypeName,in string  StateName, in boolean IsFinal);
+  void   DelState  (in long ConnectId,in string  TypeName,in string  StateName);
+
+  Octets  GetCycleList  (in long ConnectId,in string  TypeName);
+  void   AddCycle  (in long ConnectId,in string  TypeName,in string  FromStateName,in string  ToStateName, in string RoleName);
+  void   DelCycle  (in long ConnectId,in string  TypeName,in string  FromStateName,in string  ToStateName, in string RoleName);
+  Octets GetPossibleStates(in long ConnectId,in string  TypeName, in string DocumentName);
+
+  Octets GetUserList (in long ConnectId);
+  void SetUser       (in long ConnectId, in string UID, in string PWD,in boolean IsAdmin);
+  void DelUser       (in long ConnectId, in string UID, in string PWD);
+  boolean  IsAmin    (in long ConnectId, in string UID, in string PWD);
+
+  Octets GetRoleUserList(in long ConnectId,in string  TypeName, in string RoleName);
+  void   SetUserRole(in long ConnectId,in string  TypeName, in string RoleName, in string UID);
+  void   DelUserRole(in long ConnectId,in string  TypeName, in string RoleName, in string UID);
+
+
+  Octets  GetDocumentList  (in long ConnectId);
+  void    AddDocument       (in long ConnectId,in long MasterIndex,in string  TypeName, in string DocumentName, in boolean AllowVersions);
+  boolean GetVersioning    (in long ConnectId,in string  TypeName, in string DocumentName);
+  long    GetDocumentIndex    (in long ConnectId,in string  TypeName, in string DocumentName);
+  void    LockDocument(in long ConnectId,in string  TypeName, in string DocumentName, in string UID);
+  void    UnLockDocument(in long ConnectId,in string  TypeName, in string DocumentName, in string UID);
+
+
+  Octets  GetVersionList  (in long ConnectId,in string  TypeName, in string DocumentName);
+  Octets  GetVersion      (in long ConnectId,in string  TypeName, in string DocumentName, in long Version);
+  void    DeleteVersion   (in long ConnectId,in string  TypeName, in string DocumentName, in long Version);
+  long    SetNewVersion   (in long ConnectId,in string  TypeName, in string DocumentName,  in Octets Info );
+  boolean IsUpdatedVersion(in long ConnectId,in string  TypeName, in string DocumentName,  in Octets Info );
+  void    LockVersion(in long ConnectId,in string  TypeName, in string DocumentName, in long Version, in string UID);
+  void    UnLockVersion(in long ConnectId,in string  TypeName, in string DocumentName, in long Version, in string UID);
+  string  GetVersionState  (in long ConnectId,in string  TypeName, in string DocumentName,in long Version);
+  void    SetVersionState  (in long ConnectId,in string  TypeName, in string DocumentName,in long Version, in string StateName);
+
+
+  Octets GetVersionDepList(in long ConnectId,in string  TypeName, in string DocumentName, in long Version);
+  void AddVersionDep(in long ConnectId,in string  TypeName, in string DocumentName, in long Version,in string ProductName,in long Build);
+  void DelVersionDep(in long ConnectId,in string  TypeName, in string DocumentName, in long Version);
+
+
+  Octets GetWorksetList (in long ConnectId);
+  Octets GetUserWorksetList (in long ConnectId,in string Owner);
+  void AddWorkset(in long ConnectId,in string Owner,in string Name);
+  void DelWorkset(in long ConnectId,in string Owner,in string Name);
+
+
+  Octets GetWorksetItemList(in long ConnectId,in string Owner,in string Name);
+  void SetWorksetItem(in long ConnectId,in string Owner,in string Name, in string TypeName, in string DocName, in long Version);
+  void DelWorksetItem(in long ConnectId,in string Owner,in string Name, in string TypeName, in string DocName);
+
+
+  Octets GetBaselineList (in long ConnectId);
+  Octets GetProductBaselineList (in long ConnectId,in string ProductName);
+  void AddBaseline(in long ConnectId,in string ProductName,in long Version);
+  void DelBaseline(in long ConnectId,in string ProductName,in long Version);
+
+
+  Octets GetBaselineItemList(in long ConnectId,in string ProductName,in long Version);
+  void SetBaselineItem(in long ConnectId,in string ProductName,in long Version, in string TypeName, in string DocName, in long DocVersion);
+  void DelBaselineItem(in long ConnectId,in string ProductName,in long Version, in string TypeName, in string DocName);
+
+
+  Octets GetBaselineDepList(in long ConnectId,in string ProductName,in long Version);
+  void AddBaselineDep(in long ConnectId,in string ProductName,in long Version,in string DepOnProductName,in long DepOnVersion);
+  void DelBaselineDep(in long ConnectId,in string ProductName,in long Version);
+
+
+  Octets GetPackageList (in long ConnectId);
+  Octets GetProductPackageList (in long ConnectId,in string SoftwareName);
+  void AddPackage(in long ConnectId,in string SoftwareName,in long Build);
+  void DelPackage(in long ConnectId,in string SoftwareName,in long Build);
+
+  Octets GetPackageItemList(in long ConnectId,in string SoftwareName,in long Build);
+  void SetPackageItem(in long ConnectId,in string SoftwareName,in long Build,  in string ItemName, in Octets Info);
+  void DelPackageItem(in long ConnectId,in string SoftwareName,in long Build,  in string ItemName);
+
+  Octets GetPackageDepList(in long ConnectId,in string SoftwareName,in long Build);
+  void AddPackageDep(in long ConnectId,in string SoftwareName,in long Build,in string DepOnProductName,in long DepOnVersion);
+  void DelPackageDep(in long ConnectId,in string SoftwareName,in long Build);
+
+};
+
+
+

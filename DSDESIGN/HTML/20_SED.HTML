@@ -1,0 +1,253 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Строки выписки (поступления)</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Строки выписки (поступления)</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+N_STR, CDOC, CTS, BIC, BANK_SUMM,-BANK_SUMM REV_SUMM, OST_SUMM, SUMM, DB_CBS,  DB_SUBCONTO, CR_CBS,  CR_SUBCONTO,  EX_NUM,BNV_LINESID, BNVID 
+ from V_BNV_LINES_D2</I>
+<P>Запрос строки: 
+<P><I>select * from V_BNV_LINES_D2 where  BNV_LINESID=^BNV_LINESID^ and EX_NUM=^EX_NUM^</I>
+<P>Вставка: 
+<P><I>Insert Into 
+BNV_LINES ( 
+BNVID,
+N_STR,
+CDOC,
+CTS,
+BIC,
+SUMM) Values ( 
+^BNVID^,
+^N_STR^,
+^CDOC^,
+^CTS^,
+^BIC^,
+^BANK_SUMM^)</I>
+<P>Изменение: 
+<P><I>Update 
+BNV_LINES  Set  
+BNVID=^BNVID^,
+N_STR=^N_STR^,
+CDOC=^CDOC^,
+CTS=^CTS^,
+BIC=^BIC^,
+SUMM=^BANK_SUMM^ Where 
+BNV_LINESID=^BNV_LINESID^</I>
+<P>Удаление: 
+<P><I>delete  from BNV_LINES 
+where  BNV_LINESID=^ BNV_LINESID^</I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by N_STR</I>
+<H2 > Параметры</H2>
+<P>@BNVID
+<H2 > Индексы</H2>
+<P>По проводке: 
+<P><I>order by DB_CBS,DB_SUBCONTO,CR_CBS,CR_SUBCONTO</I>
+<P>По дебету: 
+<P><I>order by DB_CBS,DB_SUBCONTO</I>
+<P>По кредиту: 
+<P><I>order by CR_CBS,CR_SUBCONTO</I>
+<P>По номеру документа: 
+<P><I>order by CDOC</I>
+<P>По сумме: 
+<P><I>order by BANK_SUMM</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>№ строки</TD> <TD><I>N_STR</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ П/П</TD> <TD><I>CDOC</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Счет</TD> <TD><I>CTS</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>БИК</TD> <TD><I>BIC</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Сумма по выписке</TD> <TD><I>BANK_SUMM</I></TD> <TD><I>4</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Не обработано</TD> <TD><I>OST_SUMM</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Обработано</TD> <TD><I>SUMM</I></TD> <TD><I>6</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дебет</TD> <TD><I>DB_CBS</I></TD> <TD><I>7</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто дебета</TD> <TD><I>DB_SUBCONTO</I></TD> <TD><I>8</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Кредит</TD> <TD><I>CR_CBS</I></TD> <TD><I>9</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто кредита</TD> <TD><I>CR_SUBCONTO</I></TD> <TD><I>10</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ проводки</TD> <TD><I>EX_NUM</I></TD> <TD><I>11</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>№ строки</TD> <TD>N_STR</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>№ П/П</TD> <TD>CDOC</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Счет</TD> <TD>CTS</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>БИК</TD> <TD>BIC</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Сумма по выписке</TD> <TD>BANK_SUMM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H2 > Операции</H2>
+<H3 > Доходы</H3>
+<P>Условие
+<P><I>push{OST_SUMM!=0}</I>
+<P>Операция
+<P><I>exec LME_Make11_40 ^BNV_LINESID^,^OST_SUMM^,^K_DID^,^K_ULID^
+</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>№ Документа</TD> <TD>CDOC</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>просмотр</I></TD> </TR> 
+<TR><TD>Код дохода</TD> <TD>K_DID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Источник</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Не обработанная сумма</TD> <TD>OST_SUMM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H3 > Невыясненные</H3>
+<P>Условие
+<P><I>push{OST_SUMM!=0}</I>
+<P>Операция
+<P><I>LME_Make11_41 ^BNV_LINESID^,^OST_SUMM^</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>№ документа</TD> <TD>CDOC</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>просмотр</I></TD> </TR> 
+<TR><TD>Не обработанная сумма</TD> <TD>OST_SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H3 > Доходы *</H3>
+<P>Операция
+<P><I>exec LME_Make11_40 ^BNV_LINESID^,^OST_SUMM^,^K_DID^,^K_ULID^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Код дохода</TD> <TD>K_DID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Источник</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H3 > Из района *</H3>
+<P>Операция
+<P><I>LME_Make11_62 ^BNV_LINESID^,^OST_SUMM^,^K_DID^ ,^K_ULID^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Источник</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Код дохода</TD> <TD>K_DID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H3 > Поступление средств в пути</H3>
+<P>Условие
+<P><I>push{OST_SUMM!=0}</I>
+<P>Операция
+<P><I>LME_Make11_19 ^BNV_LINESID^,^OST_SUMM^</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Не обработанная сумма</TD> <TD>OST_SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H3 > Сторно</H3>
+<P>Операция
+<P><I>LME_MakeRedStorno ^EX_NUM^,^Dbn^
+</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Дата для проведения "сторно"</TD> <TD>Dbn</TD> <TD>Дата</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H3 > Возврат платежа</H3>
+<P>Условие
+<P><I>push{OST_SUMM==BANK_SUMM}</I>
+<P>Операция
+<P><I>LME_MakePLPReturn ^BNV_LINESID^,^PLP_RID^,^BSID^</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить текущую строку</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Платежное поручение</TD> <TD>PLP_RID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=15_SED.HTML>Платежные поручения</A> </TD> <TD>PLP_RID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Балансовый счет кредита (н/о)</TD> <TD>BSID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=2_SED.HTML>Балансовые счета</A> </TD> <TD>K_BSID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Сумма</TD> <TD>BANK_SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>просмотр</I></TD> </TR> 
+</TABLE>
+<H3 > Возврат финансирования</H3>
+<P>Операция
+<P><I>LME_MakeFinReturn ^BNV_LINESID^,^K_LSRID^,^BSID^</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Заявка на финансирование</TD> <TD>K_LSRID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=21_SED.HTML>Заявки на финансирование</A> </TD> <TD>ZF_RID</TD> <TD>CDOC_ZF_R</TD> </TR> 
+<TR><TD>Балансовый счет кредита</TD> <TD>BSID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=2_SED.HTML>Балансовые счета</A> </TD> <TD>K_BSID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Сумма</TD> <TD>BANK_SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>просмотр</I></TD> </TR> 
+</TABLE>
+<H3 > Из района</H3>
+<P>Условие
+<P><I>push{OST_SUMM!=0}</I>
+<P>Операция
+<P><I>LME_Make11_62 ^BNV_LINESID^,^OST_SUMM^,^K_DID^ ,^K_ULID^</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Источник</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CUL</TD> </TR> 
+<TR><TD>Код дохода</TD> <TD>K_DID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CD</TD> </TR> 
+<TR><TD>Не обработанная сумма</TD> <TD>OST_SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H3 > Невыясненные *</H3>
+<P>Сообщение
+<P><I>Обработать выделенные строки (текущую), как невыясненные поступления ?</I>
+<P>Операция
+<P><I>LME_Make11_41 ^BNV_LINESID^,^OST_SUMM^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H3 > Доходы (валюта)</H3>
+<P>Условие
+<P><I>push{OST_SUMM!=0}</I>
+<P>Операция
+<P><I>exec LME_Make11_40Val ^BNV_LINESID^,^OST_SUMM^,^K_DID^,^K_ULID^,^K_VALID^
+</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Код дохода</TD> <TD>K_DID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Валюта платежа</TD> <TD>K_VALID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=24_SED.HTML>Валюта</A> </TD> <TD>K_VALID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Источник</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Сумма</TD> <TD>OST_SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H3 > Отменить *</H3>
+<P>Сообщение
+<P><I>Отменить операцию для помеченных строк ?</I>
+<P>Операция
+<P><I>LME_MakeUndo ^EX_NUM^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H3 > Поступление средств в пути *</H3>
+<P>Операция
+<P><I>LME_Make11_19 ^BNV_LINESID^,^OST_SUMM^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+
+</BODY>
+</HTML>

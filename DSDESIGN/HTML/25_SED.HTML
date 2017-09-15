@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Обработанные платежные поручения</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Обработанные платежные поручения</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+PLP_R_CDOC,
+PLP_R_DDOC, 
+PLP_R_SUMM, 
+DBN, 
+D_RETURN,   
+CDOC, 
+BANK_SUMM, 
+DB_CBS,  DB_SUBCONTO, CR_CBS,  CR_SUBCONTO,
+N_STR,CTS, BIC, EX_NUM, 
+BNV_LINESID, BNVID,  PLP_R_K_TSID ,PLP_RID
+ from V_PLP_R</I>
+<P>Запрос строки: 
+<P><I></I>
+<P>Вставка: 
+<P><I></I>
+<P>Изменение: 
+<P><I></I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by PLP_R_CDOC,PLP_R_DDOC</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>№</TD> <TD><I>PLP_R_CDOC</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дата</TD> <TD><I>PLP_R_DDOC</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD><I>PLP_R_SUMM</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дата банка</TD> <TD><I>DBN</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Вернулась</TD> <TD><I>D_RETURN</I></TD> <TD><I>4</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№  из выписки</TD> <TD><I>CDOC</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Сумма из выписки</TD> <TD><I>BANK_SUMM</I></TD> <TD><I>6</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дебет</TD> <TD><I>DB_CBS</I></TD> <TD><I>7</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто дебета</TD> <TD><I>DB_SUBCONTO</I></TD> <TD><I>8</I></TD> <TD><I>400</I></TD> </TR> 
+<TR><TD>Кредит</TD> <TD><I>CR_CBS</I></TD> <TD><I>9</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто кредита</TD> <TD><I>CR_SUBCONTO</I></TD> <TD><I>10</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ строки выписки</TD> <TD><I>N_STR</I></TD> <TD><I>11</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Счет пол.</TD> <TD><I>CTS</I></TD> <TD><I>12</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>БИК пол.</TD> <TD><I>BIC</I></TD> <TD><I>13</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ проводки</TD> <TD><I>EX_NUM</I></TD> <TD><I>14</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Операции</H2>
+<H3 > Отменить привязку *</H3>
+<P>Сообщение
+<P><I>Отменить привязку платежных поручений ?</I>
+<P>Операция
+<P><I>LME_MakePLATUndo ^PLP_RID^,^BNV_LINESID^,^EX_NUM^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>удалить текущую строку</I>
+<H3 > Сменить счет дебета *</H3>
+<P>Операция
+<P><I>LME_ChangeFinDB ^EX_NUM^,^K_BSID^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Счет дебета</TD> <TD>K_BSID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=2_SED.HTML>Балансовые счета</A> </TD> <TD>K_BSID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

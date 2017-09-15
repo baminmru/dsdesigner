@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Заявки на финансирование</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Заявки на финансирование</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+CDOC_ZF_R, DDOC_ZF_R, CUL, NUL, CTS, NPL, SUMM,
+K_LSRID,K_UL_K_ULID,K_BNID, K_PRTID, K_FOID, ZF_RID  
+ from ZF_R
+where 
+ SUMM <0 and
+ DU_KN is null and
+ D_RETURN is null and
+ DU_R is null and
+ DU_KF is null and
+ DU is null and 
+ DU_GB is null and
+ DBN is null and
+ K_TDID_DP is null and
+ DOC_LINESID_DP is null and
+ K_FOID=1 and
+ K_TDID is null and
+ DOCID is null and
+ K_TDID_RF is null and
+ DOCID_RF is null</I>
+<P>Запрос строки: 
+<P><I></I>
+<P>Вставка: 
+<P><I>declare @dt datetime,@c varchar(255)
+select @dt=getdate(),@c ='ВФ'+^CDOC_ZF_R^
+
+exec LME_ADD_ZF_R 
+    @c,--^CDOC_ZF_R^,
+    @dt, --^DDOC_ZF_R^ ,               -- Дата документа
+    ^K_UL_K_ULID^,		   -- Бюджетная организация
+    ^K_LSRID^ ,                 -- Лицевой счет
+    ^K_BNID^,                      -- Наименование банка
+    5, --^K_PRTID^,                   -- Приоритет платежа
+    ^CUL^,                 -- ИНН получателя платежа
+    ^CTS^,                 -- Текущий счет получателя платежа
+    ^NUL^,        -- Наименование получателя платежа
+    'Возврат финансирования',--^NPL^,              -- Назначение платежа
+    ^SUMM^                     -- Сумма платежа
+
+</I>
+<P>Изменение: 
+<P><I></I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by CDOC_ZF_R</I>
+<H2 > Параметры</H2>
+<P>@BANK_SUMM
+<P>@NDOC
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>№ документа</TD> <TD><I>CDOC_ZF_R</I></TD> <TD><I>0</I></TD> <TD><I>300</I></TD> </TR> 
+<TR><TD>Дата документа</TD> <TD><I>DDOC_ZF_R</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>ИНН</TD> <TD><I>CUL</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Наименование</TD> <TD><I>NUL</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Счет</TD> <TD><I>CTS</I></TD> <TD><I>4</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Назначение платежа</TD> <TD><I>NPL</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD><I>SUMM</I></TD> <TD><I>6</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>№ документа</TD> <TD>CDOC_ZF_R</TD> <TD>Текст</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>ИНН</TD> <TD>CUL</TD> <TD>Текст</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Наименование</TD> <TD>NUL</TD> <TD>Текст</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Счет</TD> <TD>CTS</TD> <TD>Текст</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Сеть</TD> <TD>K_UL_K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> <TD><A HREF=23_SED.HTML>Сеть распорядителей</A> </TD> <TD>K_UL_K_ULID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Банк</TD> <TD>K_BNID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> <TD><A HREF=6_SED.HTML>Банки</A> </TD> <TD>K_BNID</TD> <TD>NBN_PLP</TD> </TR> 
+<TR><TD>Лицевой счет расходов</TD> <TD>K_LSRID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> <TD><A HREF=16_SED.HTML>Лицевой счет расхода</A> </TD> <TD>K_LSRID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

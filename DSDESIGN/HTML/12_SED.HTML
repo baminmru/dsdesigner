@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Проводки</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Проводки</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+  DOCID, DB_CBS, DB_NBS, DB_SUBCONTO, 
+  CR_CBS, CR_NBS, CR_SUBCONTO,DB_K_BSID, CR_K_BSID, 
+  SUMM, EX_NUM 
+from 
+  V_GOOD_EX
+</I>
+<P>Запрос строки: 
+<P><I>select 
+DOCID, DB_CBS, DB_NBS, DB_SUBCONTO, CR_CBS, CR_NBS, CR_SUBCONTO,DB_K_BSID, CR_K_BSID, SUMM, EX_NUM 
+ from V_GOOD_EX where EX_NUM=^EX_NUM^
+</I>
+<P>Вставка: 
+<P><I>LME_MakeNewEx 
+^DOCID^,
+^SUMM^,^DB_K_BSID^,^CR_K_BSID^</I>
+<P>Изменение: 
+<P><I>select 1</I>
+<P>Удаление: 
+<P><I></I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I> order by EX_NUM</I>
+<H2 > Параметры</H2>
+<P>@K_TDID
+<P>@DOCID
+<P>@EX_NUM
+<H2 > Индексы</H2>
+<P>По проводке: 
+<P><I>order by DB_CBS,DB_SUBCONTO,CR_CBS,CR_SUBCONTO</I>
+<P>По дебету: 
+<P><I>order by DB_CBS,DB_SUBCONTO</I>
+<P>По кредиту: 
+<P><I>order by CR_CBS,CR_SUBCONTO</I>
+<P>По сумме: 
+<P><I>order by SUMM</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Сумма</TD> <TD><I>SUMM</I></TD> <TD><I>0</I></TD> <TD><I>120</I></TD> </TR> 
+<TR><TD>Дебет</TD> <TD><I>DB_CBS</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто дебета</TD> <TD><I>DB_SUBCONTO</I></TD> <TD><I>2</I></TD> <TD><I>200</I></TD> </TR> 
+<TR><TD>Кредит</TD> <TD><I>CR_CBS</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто кредита</TD> <TD><I>CR_SUBCONTO</I></TD> <TD><I>4</I></TD> <TD><I>200</I></TD> </TR> 
+<TR><TD>№ по журналу проводок</TD> <TD><I>EX_NUM</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>просмотр</TD> </TR> 
+<TR><TD>Субконто дебета</TD> <TD>DB_SUBCONTO</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>нет</I></TD> <TD>просмотр</TD> </TR> 
+<TR><TD>Субконто кредита</TD> <TD>CR_SUBCONTO</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>нет</I></TD> <TD>просмотр</TD> </TR> 
+<TR><TD>Ордер</TD> <TD>DOCID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>просмотр</TD> <TD><A HREF=0_SED.HTML>Мемориальные ордера</A> </TD> <TD>DOCID</TD> <TD>CDOC</TD> </TR> 
+<TR><TD>Дебет</TD> <TD>DB_K_BSID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>просмотр</TD> <TD><A HREF=2_SED.HTML>Балансовые счета</A> </TD> <TD>K_BSID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Кредит</TD> <TD>CR_K_BSID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>просмотр</TD> <TD><A HREF=2_SED.HTML>Балансовые счета</A> </TD> <TD>K_BSID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H2 > Операции</H2>
+<H3 > Сторно</H3>
+<P>Операция
+<P><I>LME_MakeRedStorno ^EX_NUM^,^Dbn^</I>
+<P>Применяется для
+<P><I>текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Дата регистрации "сторно"</TD> <TD>Dbn</TD> <TD>Дата</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+<H3 > Доходы в пути +</H3>
+<P>Операция
+<P><I>LME_Make19_40 ^SUMM^, ^K_DID^,^DOCID^,^K_ULID^</I>
+<P>Применяется для
+<P><I>новой строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Код дохода</TD> <TD>K_DID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Источник</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H3 > Перечисления района в пути +</H3>
+<P>Операция
+<P><I>LME_Make19_62 ^SUMM^,^K_DID^,^K_ULID^,^DOCID^</I>
+<P>Применяется для
+<P><I>новой строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Источник</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Код дохода</TD> <TD>K_DID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H3 > Исправление Район -> Доход +</H3>
+<P>Операция
+<P><I>LME_Make62_40 ^SUMM^,^K_ULID^,^K_DID_DB^,^K_DID_CR^,^DOCID^,^K_ULID_CR^</I>
+<P>Применяется для
+<P><I>новой строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Источник (дебет)</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CUL</TD> </TR> 
+<TR><TD>Код дохода (дебет)</TD> <TD>K_DID_DB</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Код дохода (кредит)</TD> <TD>K_DID_CR</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Источник (кредит)</TD> <TD>K_ULID_CR</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H3 > Исправление Доход->Район +</H3>
+<P>Операция
+<P><I>LME_Make40_62 ^SUMM^,^K_DID_DB^,^K_ULID_CR^,^K_DID_CR^,^DOCID^,^K_ULID^</I>
+<P>Применяется для
+<P><I>новой строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Код дохода (дебет)</TD> <TD>K_DID_DB</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Источник (дебет)</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CUL</TD> </TR> 
+<TR><TD>Источник (кредит)</TD> <TD>K_ULID_CR</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Код дохода (кредит)</TD> <TD>K_DID_CR</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H3 > Исправление Доход->Доход +</H3>
+<P>Операция
+<P><I>LME_Make40_40Err ^SUMM^,^K_DID_DB^,^K_DID_CR^,^DOCID^,^K_ULID_DB^,^K_ULID_CR^</I>
+<P>Применяется для
+<P><I>новой строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Код дохода (дебет)</TD> <TD>K_DID_DB</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Источник (дебет)</TD> <TD>K_ULID_DB</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Код дохода(кредит)</TD> <TD>K_DID_CR</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=8_SED.HTML>Классификация доходов</A> </TD> <TD>K_DID</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Источник (кредит)</TD> <TD>K_ULID_CR</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H3 > Отменить выяснение *</H3>
+<P>Сообщение
+<P><I>Отменить выяснение для текущей строки ?</I>
+<P>Операция
+<P><I>LME_Drop41_40 ^EX_NUM^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H3 > Отменить *</H3>
+<P>Сообщение
+<P><I>Отменить операцию ?</I>
+<P>Операция
+<P><I>LME_MakeUndo ^EX_NUM^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H3 > 19-11 +</H3>
+<P>Операция
+<P><I>LME_Make19_11 ^SUMM^,^K_TSID^,^DOCID^</I>
+<P>Применяется для
+<P><I>новой строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H4 > Описание формы для операции</H4>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Сумма</TD> <TD>SUMM</TD> <TD>Число</TD> <TD>Нет</TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Счет</TD> <TD>K_TSID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><A HREF=14_SED.HTML>Счета КФ</A> </TD> <TD>K_TSID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

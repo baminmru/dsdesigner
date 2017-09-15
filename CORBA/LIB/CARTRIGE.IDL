@@ -1,0 +1,23 @@
+typedef sequence<octet> Octets;
+
+
+// источники данных
+interface Cartrige{
+  long NewInstance();
+  void CloseInstance(in long Instance);
+  void Connect(in long Instance,in Octets Info);
+  void DisConnect(in long Instance);
+  boolean IsConnected(in long Instance);
+  Octets GetConnectInfo();
+  Octets GetRowSet(in long Instance,in string Query, in Octets Parameters);
+  long OpenCursor(in long Instance,in string Query, in Octets Parameters);
+  Octets GetCursorHeared(in long Instance,in long Cursor);
+  Octets GetCursorRow(in long Instance,in long Cursor);
+  boolean NoMoreRows(in long Instance,in long Cursor);
+  void CloseCursor(in long Instance,in long Cursor);
+  void Exec(in long Instance,in string Query, in Octets Parameters);
+};
+
+
+
+

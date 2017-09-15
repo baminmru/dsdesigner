@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Строки выписки</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Строки выписки</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select  
+  N_STR, CDOC, CTS, BIC, BANK_SUMM, OST_SUMM, SUMM, 
+  DB_CBS, DB_NBS, DB_SUBCONTO, CR_CBS, CR_NBS, CR_SUBCONTO,  
+  BNV_LINESID, BNVID,EX_NUM 
+from 
+  V_BNV_LINES_D2 
+</I>
+<P>Запрос строки: 
+<P><I>select  
+  N_STR, CDOC, CTS, BIC, BANK_SUMM, OST_SUMM, SUMM, 
+  DB_CBS, DB_NBS, DB_SUBCONTO, CR_CBS, CR_NBS, CR_SUBCONTO,  
+  BNV_LINESID, BNVID,EX_NUM 
+from 
+  V_BNV_LINES_D2 
+Where 
+  BNV_LINESID=^BNV_LINESID^ and EX_NUM=^EX_NUM^</I>
+<P>Вставка: 
+<P><I>Insert Into BNV_LINES ( 
+BNVID,
+N_STR,
+CDOC,
+CTS,
+BIC,
+SUMM) Values ( 
+^BNVID^,
+^N_STR^,
+^CDOC^,
+^CTS^,
+^BIC^,
+^BANK_SUMM^)</I>
+<P>Изменение: 
+<P><I>Update 
+BNV_LINES  Set  
+BNVID=^BNVID^,
+N_STR=^N_STR^,
+CDOC=^CDOC^,
+CTS=^CTS^,
+BIC=^BIC^,
+SUMM=^BANK_SUMM^ Where BNV_LINESID=^BNV_LINESID^</I>
+<P>Удаление: 
+<P><I>delete  from BNV_LINES where  BNV_LINESID=^BNV_LINESID^</I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by N_STR</I>
+<H2 > Параметры</H2>
+<P>@BNVID
+<H2 > Индексы</H2>
+<P>По сумме выписки: 
+<P><I>order by BANK_SUMM</I>
+<P>По необработанной сумме: 
+<P><I>order by OST_SUMM</I>
+<P>По обработанной сумме: 
+<P><I>order by SUMM</I>
+<P>По проводке: 
+<P><I>order by DB_CBS,DB_SUBCONTO,CR_CBS,CR_SUBCONTO</I>
+<P>По кредиту проводки: 
+<P><I>order by CR_CBS,CR_SUBCONTO</I>
+<P>По дебету проводки: 
+<P><I>order by DB_CBS,DB_SUBCONTO</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>№ строки</TD> <TD><I>N_STR</I></TD> <TD><I>0</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>№ документа</TD> <TD><I>CDOC</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Счет плательщика</TD> <TD><I>CTS</I></TD> <TD><I>5</I></TD> <TD><I>160</I></TD> </TR> 
+<TR><TD>БИК</TD> <TD><I>BIC</I></TD> <TD><I>6</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD><I>BANK_SUMM</I></TD> <TD><I>2</I></TD> <TD><I>120</I></TD> </TR> 
+<TR><TD>Не обработано</TD> <TD><I>OST_SUMM</I></TD> <TD><I>3</I></TD> <TD><I>120</I></TD> </TR> 
+<TR><TD>Обработано</TD> <TD><I>SUMM</I></TD> <TD><I>4</I></TD> <TD><I>120</I></TD> </TR> 
+<TR><TD>Дебет</TD> <TD><I>DB_CBS</I></TD> <TD><I>7</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто дебета</TD> <TD><I>DB_SUBCONTO</I></TD> <TD><I>8</I></TD> <TD><I>200</I></TD> </TR> 
+<TR><TD>Кредит</TD> <TD><I>CR_CBS</I></TD> <TD><I>9</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Субконто кредита</TD> <TD><I>CR_SUBCONTO</I></TD> <TD><I>10</I></TD> <TD><I>200</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>№ строки</TD> <TD>N_STR</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>№ документа</TD> <TD>CDOC</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Счет плательщика</TD> <TD>CTS</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>БИК</TD> <TD>BIC</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Сумма</TD> <TD>BANK_SUMM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Выписка</TD> <TD>BNVID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> <TD><A HREF=3_SED.HTML>Выписки</A> </TD> <TD>BNVID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

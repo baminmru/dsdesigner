@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Выборка </TITLE>
+</HEAD>
+<BODY>
+<H1 > Фильтр: Выборка </H1>
+<P>Префикс запроса
+<P><I>where 1=1</I>
+<P>Обединяющая конструкция
+<P><I>and</I>
+<H2 > Описание формы фильтра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Условие на поле</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Группа счетов</TD> <TD>ACC_GRP</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>(K_TSID in (select K_TSID from LME_ACC_GRP where LME_ACC_GRP_NAME_ID=^ACC_GRP^))</TD> <TD><A HREF=28_SED.HTML>Названия групп счетов</A> </TD> <TD>LME_ACC_GRP_NAMEID</TD> <TD>NAME</TD> </TR> 
+<TR><TD>С</TD> <TD>D_FROM</TD> <TD>Дата</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>^D_FROM^<=DATE</TD> </TR> 
+<TR><TD>ПО</TD> <TD>D_TO</TD> <TD>Дата</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>DATE>=^D_TO^</TD> </TR> 
+<TR><TD>Сумма банка >=</TD> <TD>SUMM_FROM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>BANK_SUMM >=^SUMM_FROM^</TD> </TR> 
+<TR><TD>Сумма банка <=</TD> <TD>SUMM_TO</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>BANK_SUMM <=^SUMM_TO^</TD> </TR> 
+<TR><TD>Сумма операции >=</TD> <TD>OP_FROM</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>SUMM >=^OP_FROM^</TD> </TR> 
+<TR><TD>Сумма операции <=</TD> <TD>OP_TO</TD> <TD>Число</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>SUMM <=^OP_TO^</TD> </TR> 
+<TR><TD>Счет дебета</TD> <TD>DB</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>DB_CBS=^DB^</TD> <TD><A HREF=2_SED.HTML>Балансовые счета</A> </TD> <TD>CBS</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Субконто дебета</TD> <TD>DB_SUB</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>DB_SUBCONTO like '%'+^DB_SUB^+'%'</TD> </TR> 
+<TR><TD>Счет кредита</TD> <TD>CR</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>CR_CBS=^CR^</TD> <TD><A HREF=2_SED.HTML>Балансовые счета</A> </TD> <TD>CBS</TD> <TD>CODE</TD> </TR> 
+<TR><TD>Субконто кредита</TD> <TD>CR_SUB</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>CR_SUBCONTO like ('%'+^CR_SUB^+'%')</TD> </TR> 
+<TR><TD>№документа</TD> <TD>BNV_DDOC</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD>CDOC like ('%'+^BNV_DDOC^+'%')</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="BAMIPackage.bpl"/>
+    <OBJFILES value="BAMIPackage.obj StreamGrid.obj EditForm.obj SG_Garbage.obj StreamCombo.obj 
+      StreamDialog.obj CRW\CRPrintEngine.obj Index.obj ToHTML.obj ToEXCEL.obj"/>
+    <RESFILES value="BAMIPackage.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) EditForm.dfm SG_Garbage.dfm StreamDialog.dfm Index.dfm 
+      ToHTML.dfm ToEXCEL.dfm"/>
+    <LIBFILES value="..\MYLIB\mylib.lib ..\MYLIB\LIB\Crpe32.lib ..\MyLib\LIB\ODBC32.LIB"/>
+    <LIBRARIES value="vclbde50.lib vcldb50.lib"/>
+    <SPARELIBS value="vcl50.lib vclx50.lib vcldb50.lib vclbde50.lib"/>
+    <PACKAGES value="vclx50.bpi vcl50.bpi"/>
+    <PATHCPP value=".;CRW"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="NO_STRICT;_RTLDLL;USEPACKAGES"/>
+    <MAINSOURCE value="BAMIPackage.cpp"/>
+    <INCLUDEPATH value="..\dsreport;..\xl;..\..\..\cbuilder3\rx\units;crw;..\dsdesign;..\mylib\include;$(BCB)\include;$(BCB)\include\vcl;..\mylib\src"/>
+    <LIBPATH value="$(BCB)\Projects\Lib;..\dsreport;..\xl;crw;..\dsdesign;..\mylib\include;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src"/>
+    <WARNINGS value="-w-par -w-8027 -w-8026"/>
+    <WARNOPTSTR value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I..\dsreport -I..\xl -I..\..\..\cbuilder3\rx\units -Icrw -I..\dsdesign 
+      -I..\mylib\include -I$(BCB)\include -I$(BCB)\include\vcl -I..\mylib\src 
+      -src_suffix cpp -boa"/>
+    <CFLAG1 value="-Od -H=d:\PROGRA~1\borland\CBUILD~1\lib\vcl50.csm -Hc -Vx -Ve -Tkh30000 
+      -X- -r- -a8 -b- -k -y -v -vi- -c -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -M -JPHNE"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-D&quot;BAMI tool package&quot; -aa -Tpp -x -Gn -Gl -Gi -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0pkg32.obj $(PACKAGES) Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=1
+MinorVer=0
+Release=0
+Build=16
+Debug=0
+PreRelease=1
+Special=0
+Private=0
+DLL=0
+Locale=1049
+CodePage=1251
+
+[Version Info Keys]
+CompanyName=LMER
+FileDescription=
+FileVersion=1.0.0.16
+InternalName=LMER StreamEditors
+LegalCopyright=© LMER,1999
+LegalTrademarks=
+OriginalFilename=
+ProductName=LMER StreamEditors
+ProductVersion=1.0.0.1
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=5
+Item0=..\dsreport;..\xl;..\..\..\cbuilder3\rx\units;crw;..\dsdesign;..\mylib\include;$(BCB)\include;$(BCB)\include\vcl;..\mylib\src
+Item1=..\dsreport;..\xl;d:\cbuilder3\rx\units;..\..\..\proc\cbuilder3\bin;crw;..\dsdesign;..\..\..\cbuilder3\projects;..\..\..\cbuilder3\lib;..\mylib\include;$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include;d:\bami\bc\mylib\src
+Item2=..\..\..\proc\cbuilder3\bin;crw;..\dsdesign;..\..\..\cbuilder3\projects;..\..\..\cbuilder3\lib;..\mylib\include;$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include;d:\bami\bc\mylib\src
+Item3=..\..\..\cbuilder3\projects;..\..\..\cbuilder3\lib;..\mylib\include;$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include;d:\bami\bc\mylib\src
+Item4=$(BCB)\include;$(BCB)\include\vcl;d:\bami\bc\mylib\include
+
+[HistoryLists\hlLibraryPath]
+Count=7
+Item0=$(BCB)\Projects\Lib;;..\dsreport;..\xl;crw;..\dsdesign;..\mylib\include;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src
+Item1=$(BCB)\Projects\Lib;..\..\..\CBuilder3\Lib\Release;..\..\..\CBuilder4\Lib\Release;..\dsreport;..\xl;crw;..\dsdesign;..\..\..\cbuilder3\rx\units;..\mylib\include;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src
+Item2=..\dsreport;..\xl;crw;..\dsdesign;d:\cbuilder3\rx\units;..\mylib\include;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src
+Item3=..\dsreport;..\xl;..\..\..\proc\cbuilder3\projects;..\..\..\proc\cbuilder3\bin;crw;..\dsdesign;..\..\..\proc\cbuilder3\lib;..\..\..\proc\cbuilder3\rx\units;..\..\..\cbuilder3\projects;..\..\..\cbuilder3\lib;..\mylib\include;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src
+Item4=..\..\..\proc\cbuilder3\bin;crw;..\dsdesign;..\..\..\proc\cbuilder3\lib;..\..\..\proc\cbuilder3\rx\units;..\..\..\cbuilder3\projects;..\..\..\cbuilder3\lib;..\mylib\include;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src
+Item5=..\..\..\cbuilder3\projects;..\..\..\cbuilder3\lib;..\mylib\include;..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib;..\mylib\src
+Item6=..\..\..\proc\cbuilder3\lib\release;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_RTLDLL;USEPACKAGES
+Item1=USEPACKAGES
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

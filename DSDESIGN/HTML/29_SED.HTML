@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Состав группы счетов</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Состав группы счетов</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select  * from V_ACC_GRP 
+</I>
+<P>Запрос строки: 
+<P><I>select  * from V_ACC_GRP where LME_ACC_GRPID=^LME_ACC_GRPID^
+</I>
+<P>Вставка: 
+<P><I>Insert Into 
+LME_ACC_GRP ( 
+LME_ACC_GRP_NAME_ID,
+K_TSID) Values ( 
+^LME_ACC_GRP_NAME_ID^,
+^K_TSID^)</I>
+<P>Изменение: 
+<P><I>Update 
+LME_ACC_GRP Set  
+LME_ACC_GRP_NAME_ID=^LME_ACC_GRP_NAME_ID^,
+K_TSID=^K_TSID^ Where
+LME_ACC_GRPID=^LME_ACC_GRPID^</I>
+<P>Удаление: 
+<P><I>delete from LME_ACC_GRP where LME_ACC_GRPID=^LME_ACC_GRPID^
+</I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by NAME,CTS</I>
+<H2 > Параметры</H2>
+<P>@LME_ACC_GRP_NAME_ID
+<H2 > Индексы</H2>
+<P>По банкам: 
+<P><I>order by NAME,NBN,CTS</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Название</TD> <TD><I>NAME</I></TD> <TD><I>0</I></TD> <TD><I>120</I></TD> </TR> 
+<TR><TD>Счет</TD> <TD><I>CTS</I></TD> <TD><I>1</I></TD> <TD><I>160</I></TD> </TR> 
+<TR><TD>БИК</TD> <TD><I>BIC</I></TD> <TD><I>2</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Банк</TD> <TD><I>NBN</I></TD> <TD><I>3</I></TD> <TD><I>250</I></TD> </TR> 
+<TR><TD>Дата регистрации</TD> <TD><I>DRS</I></TD> <TD><I>4</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Дата закрытия</TD> <TD><I>DZS</I></TD> <TD><I>5</I></TD> <TD><I>80</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Группа</TD> <TD>LME_ACC_GRP_NAME_ID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> <TD><A HREF=28_SED.HTML>Названия групп счетов</A> </TD> <TD>LME_ACC_GRP_NAMEID</TD> <TD>NAME</TD> </TR> 
+<TR><TD>Счет</TD> <TD>K_TSID</TD> <TD>Встроенный редактор (список)</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> <TD><A HREF=14_SED.HTML>Счета КФ</A> </TD> <TD>K_TSID</TD> <TD>CODE</TD> </TR> 
+</TABLE>
+<H2 > Операции</H2>
+<H3 > Добавить все счета</H3>
+<P>Операция
+<P><I>LME_AddAllAccountToGroup ^LME_ACC_GRP_NAME_ID^</I>
+<P>Применяется для
+<P><I>новой строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+<H3 > Удалить из группы *</H3>
+<P>Операция
+<P><I>delete from LME_ACC_GRP where  LME_ACC_GRPID=^LME_ACC_GRPID^</I>
+<P>Применяется для
+<P><I>выделенных строк или текущей строки</I>
+<P>После операции
+<P><I>обновить все строки</I>
+
+</BODY>
+</HTML>

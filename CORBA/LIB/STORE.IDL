@@ -1,0 +1,99 @@
+typedef sequence<octet> Octets ;
+
+
+interface ObjDefStorage{
+
+     // обслуживание соединения
+     long Connect(in string UID, in string PWD, in string PlatformName);
+     void DisConnect(in long ConnectId);
+     void ChangePassword(in long ConnectId,in string Password);
+
+
+     // работа со списком платформ
+     Octets  GetPlatformList  (in long ConnectId);
+     void   AddPlatform  (in long ConnectId,in string  PlatformName);
+     void   DelPlatform  (in long ConnectId,in string  PlatformName);
+
+
+     // работа со списком платформ баз данных
+     Octets  GetTargetList  (in long ConnectId);
+     void   AddTarget  (in long ConnectId,in string  TargetName);
+     void   DelTarget  (in long ConnectId,in string  TargetName);
+
+
+     // работа со списком систем
+     Octets  GetSystemList  (in long ConnectId);
+     void   AddSystem  (in long ConnectId,in string  SystemName);
+     void   DelSystem  (in long ConnectId,in string  SystemName);
+
+     // информационные списки
+     Octets  GetSystemBuildList  (in long ConnectId,in string  SystemName);
+     Octets  GetSystemObjectsList (in long ConnectId,in string  SystemName);
+
+
+     // работа со списком реализаций
+     Octets  GetBuildList  (in long ConnectId);
+     void   AddBuild  (in long ConnectId,in string  BuildName,in string  SystemName);
+     void   DelBuild  (in long ConnectId,in string  BuildName,in string  SystemName);
+
+
+     // работа с пользователем
+     Octets GetUserList  (in long ConnectId);
+     Octets GetUser(in long ConnectId,in string  UserName);
+     void SetUser(in long ConnectId,in string  UserName, in string  Password, in boolean IsAdmin);
+     void DelUser(in long ConnectId,in string  UserName);
+
+
+     // получить или сохранить источник данных
+     Octets GetDataSourceList(in long ConnectId,in string  SystemName);
+     void DelDataSource(in long ConnectId,in string  SystemName,in string  SourceName);
+     void AddDataSource(in long ConnectId,in string  SystemName,in string  SourceName);
+
+
+     // получить или сохранить объект
+     Octets GetObject(in long ConnectId,in string  SystemName,in string ObjectName);
+     //string GetObjectComponent(in long ConnectId,in string  SystemName,in string ObjectName);
+     void SetObject(in long ConnectId,in string  SystemName,in string  ObjectName,in string ComponentName,in Octets ObjData);
+     void DelObject(in long ConnectId,in string  SystemName,in string ObjectName);
+
+
+     // получить или сохранить компоненнт
+     Octets GetComponentList(in long ConnectId,in string Platform);
+     Octets GetComponent(in long ConnectId,in string Platform,in string ComponentName);
+     void SetComponent(in long ConnectId,in string Platform,in string ComponentName, in Octets Data);
+     void DelComponent(in long ConnectId,in string Platform,in string ComponentName);
+
+
+     // получить или сохранить компоненнт доступа к данным
+     Octets GetTargetPack(in long ConnectId,in string Target,in string PackName,in string PlatformName);
+     void SetTargetPack(in long ConnectId,in string Target,in string PackName,in string PlatformName,in Octets Data);
+     void DelTargetPack(in long ConnectId,in string Target,in string PackName,in string PlatformName);
+
+
+     // права на объект
+     boolean GetBuildRights(in long ConnectId,in string  SystemName,in string BuildName,in string UserName);
+     void SetBuildRights(in long ConnectId,in string  SystemName,in string BuildName,in string UserName, in boolean AllowAccess );
+     void DelBuildRights(in long ConnectId,in string  SystemName,in string BuildName,in string UserName);
+
+     // права на объект
+     Octets GetObjectRights(in long ConnectId,in string  SystemName,in string ObjectName,in string UserName);
+     void SetObjectRights(in long ConnectId,in string  SystemName,in string ObjectName,in string UserName, in boolean Exec ,in boolean Read, in boolean Write );
+     void DelObjectRights(in long ConnectId,in string  SystemName,in string ObjectName,in string UserName);
+
+
+     // установки пользоателя для объекта
+     Octets GetObjectLocals(in long ConnectId,in string  SystemName,in string ObjectName,in string UserName);
+     void SetObjectLocals(in long ConnectId,in string  SystemName,in string ObjectName,in string UserName, in Octets Locals);
+     void DelObjectLocals(in long ConnectId,in string  SystemName,in string ObjectName,in string UserName);
+
+     // настройки специфические для конкретной реализации
+     Octets GetObjectPlatformSpecifics(in long ConnectId,in string  SystemName,in string ObjectName,in string PlatformName);
+     void SetObjectPlatformSpecifics(in long ConnectId,in string  SystemName,in string ObjectName,in string PlatformName, in Octets Specifics);
+     void DelObjectPlatformSpecifics(in long ConnectId,in string  SystemName,in string ObjectName,in string PlatformName);
+
+     // установочный комплект для источника данных
+     Octets GetTargetPackSetup(in long ConnectId,in string  BuildName,in string  SystemName,in string DataSource);
+     void SetTargetPackSetup(in long ConnectId,in string  BuildName,in string  SystemName,in string DataSource,in string TargetName, in Octets Specifics);
+     void DelTargetPackSetup(in long ConnectId,in string  BuildName,in string  SystemName,in string DataSource);
+
+};

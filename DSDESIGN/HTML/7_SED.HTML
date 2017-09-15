@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Счета</TITLE>
+</HEAD>
+<BODY>
+<H1 > Редактор: Счета</H1>
+<H2 > Общие данные</H2>
+<P>Соединение: 
+<P><I>Бюджет 99</I>
+<P>Запрос: 
+<P><I>select 
+  K_TSID,  K_BNID, CTS, DZS, DRS, K_ULID,BIC+'.'+CTS CODE
+  ,CUL,BIC,NBN
+from 
+  K_TS
+join LME_PARAMS on K_ULID_INPUT=ID and NAME='KF_ID'
+</I>
+<P>Запрос строки: 
+<P><I>select 
+K_TSID,  K_BNID, CTS, DZS, DRS, K_ULID ,BIC+'.'+CTS CODE  ,CUL,BIC,NBN
+ from K_TS
+where K_TSID=^K_TSID^</I>
+<P>Вставка: 
+<P><I>exec LME_AddK_TS 
+^K_BNID^,
+^CTS^,
+^DZS^,
+^DRS^,
+^K_ULID^ 
+</I>
+<P>Изменение: 
+<P><I>exec LME_UpdK_TS 
+^K_BNID^,
+^CTS^,
+^DZS^,
+^DRS^,
+^K_ULID^, 
+^K_TSID^
+
+</I>
+<P>Удаление: 
+<P><I>delete from K_TS where
+ K_TSID=^K_TSID^</I>
+<P>Дополнительное условие: 
+<P><I></I>
+<P>Индекс по умолчанию: 
+<P><I>order by CODE</I>
+<H2 > Индексы</H2>
+<P>По владельцу: 
+<P><I>order by CUL,CODE</I>
+<P>По счету: 
+<P><I>order by CTS</I>
+<H2 > Колонки просмотра</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Расположение по горизонтали</TH> <TH>Ширина</TH> </TR> 
+<TR><TD>Счет</TD> <TD><I>CTS</I></TD> <TD><I>0</I></TD> <TD><I>200</I></TD> </TR> 
+<TR><TD>Дата регистрация</TD> <TD><I>DRS</I></TD> <TD><I>2</I></TD> <TD><I>160</I></TD> </TR> 
+<TR><TD>Владелец</TD> <TD><I>CUL</I></TD> <TD><I>1</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>БИК</TD> <TD><I>BIC</I></TD> <TD><I>3</I></TD> <TD><I>80</I></TD> </TR> 
+<TR><TD>Название банка</TD> <TD><I>NBN</I></TD> <TD><I>4</I></TD> <TD><I>250</I></TD> </TR> 
+</TABLE>
+<H2 > Поля формы ввода и редактирования</H2>
+<TABLE border=2 ><TR><TH>Заголовок</TH> <TH>Поле</TH> <TH>Способ представления</TH> <TH>Допускает пустое значение</TH> <TH>Доступ при вставке</TH> <TH>Доступ при изменении</TH> <TH>Редактор</TH> <TH>Поле для синхронизации</TH> <TH>Поле для отображения</TH> </TR> 
+<TR><TD>Банк</TD> <TD>K_BNID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> <TD><A HREF=6_SED.HTML>Банки</A> </TD> <TD>K_BNID</TD> <TD>NBN_PLP</TD> </TR> 
+<TR><TD>Счет</TD> <TD>CTS</TD> <TD>Текст</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Дата регистрация</TD> <TD>DRS</TD> <TD>Дата</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+<TR><TD>Юридическое лицо</TD> <TD>K_ULID</TD> <TD>Встроенный редактор (список)</TD> <TD>Нет</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> <TD><A HREF=4_SED.HTML>Юридические лица</A> </TD> <TD>K_ULID</TD> <TD>NUL</TD> </TR> 
+<TR><TD></TD> <TD>CODE</TD> <TD>Текст</TD> <TD>Да</TD> <TD><I>запись</I></TD> <TD><I>запись</I></TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

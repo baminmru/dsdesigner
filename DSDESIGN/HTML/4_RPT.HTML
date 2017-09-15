@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=Content-Type CONTENT=text/html; charset=windows-1251>
+<TITLE>Суммарные обороты</TITLE>
+</HEAD>
+<BODY>
+<H1 > Отчет: Суммарные обороты</H1>
+<P>Соединение
+<P><I>Бюджет 99</I>
+<P>Файл отчета
+<P><I>oborot2.rpt</I>
+<P>Заголовок
+<P><I>push { "Суммарные обороты за период от " & D_FROM &" по " & D_TO }</I>
+<H2 > Формулы</H2>
+<TABLE border=2 ><TR><TH>Название</TH> <TH>Значение</TH> </TR> 
+<TR><TD>D_TO</TD> <TD>push {
+"Date(" & Year{D_TO} &","& Month{D_TO} &
+"," & Day{D_TO} & ")"
+}</TD> </TR> 
+<TR><TD>D_FROM</TD> <TD>push {
+"Date(" & Year{D_FROM} &"," & Month{D_FROM} &
+"," & Day{D_FROM} & ")"
+}</TD> </TR> 
+</TABLE>
+
+</BODY>
+</HTML>

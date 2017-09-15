@@ -1,0 +1,1 @@
+dsdesign.exe @server.lme $Сервер &Заключения #zni
